@@ -26,6 +26,7 @@ boxes.forEach(box => {
     box.addEventListener("click", () => {
     if(turnO) {
         box.innerText="O";
+        box.style.color="Black"
         turnO=false;
     }else{
         box.innerText="X";
@@ -68,4 +69,5 @@ const checkWinner= ()=>{
 }
 
 newGameBtn.addEventListener("click", resetGame);
+
 reset_btn.addEventListener("click", resetGame);
