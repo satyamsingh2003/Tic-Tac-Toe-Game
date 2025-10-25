@@ -15,12 +15,15 @@ const winning_pattern =[
     [3,4,5],
     [6,7,8]
 ];
+let count =0;
 
 const resetGame = ()=>{
+    count=0;
     turnO = true;
     enableBoxes();
     msgContainer.classList.add("hide");
 }
+
 
 boxes.forEach(box => {
     box.addEventListener("click", () => {
@@ -35,13 +38,27 @@ boxes.forEach(box => {
     }
    box.disabled=true; 
    checkWinner();
+   count++;
+//    console.log(count)
+   if(count==9)
+   {
+    showDraw("Draw");
+   }
     })
 })  
 
+const showDraw = (winner)=>{
+    count=0;
+    message.innerText=`Match ${winner}`;
+    msgContainer.classList.remove("hide");
+}
+
 const showWinner = (winner) => {
+    count=0;
     message.innerText=`Congratulations, Winner is ${winner}`;
     msgContainer.classList.remove("hide");
 }
+
 
 const disableBoxes = ()=>{
     for(let box of boxes){
@@ -67,9 +84,8 @@ const checkWinner= ()=>{
          }
         }
     }
+    
 }
 
 newGameBtn.addEventListener("click", resetGame);
-
 reset_btn.addEventListener("click", resetGame);
-
