@@ -30,6 +30,7 @@ boxes.forEach(box => {
         turnO=false;
     }else{
         box.innerText="X";
+        box.style.color="red"
         turnO=true;
     }
    box.disabled=true; 
@@ -71,3 +72,4 @@ const checkWinner= ()=>{
 newGameBtn.addEventListener("click", resetGame);
 
 reset_btn.addEventListener("click", resetGame);
+
